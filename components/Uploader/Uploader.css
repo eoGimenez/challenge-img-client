@@ -1,0 +1,15 @@
+.section--uploader--img {
+	margin-inline: auto;
+	max-width: 35rem;
+}
+.uploader--container {
+	margin-inline: auto;
+}
+.img--container {
+	margin-inline: auto;
+	max-width: 60%;
+}
+.img--handler {
+	margin-inline: auto;
+	max-width: 60%;
+}
