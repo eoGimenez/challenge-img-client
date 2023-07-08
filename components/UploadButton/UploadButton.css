@@ -1,4 +1,4 @@
-.custom-file-input {
+.img--buttom--decoration {
 	display: inline-block;
 	padding: 10px 15px;
 	background-color: #f0f0f0;
@@ -8,10 +8,22 @@
 	cursor: pointer;
 }
 
-.custom-file-input:hover {
+.img--buttom--decoration:hover {
 	background-color: #e0e0e0;
 }
 
-.custom-file-input:active {
+.img--buttom--decoration:active {
 	background-color: #d0d0d0;
+}
+.img--handler {
+	width: 300px;
+	height: 200px;
+	border: 2px dashed #aaa;
+	border-radius: 4px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	cursor: pointer;
 }

@@ -1,13 +1,28 @@
 import { useState } from 'react';
 
-export function useFile({ type }) {
+export function useFile() {
 	const [path, setPath] = useState('');
 	const [status, setStatus] = useState({});
 
 	const API_URL = `${import.meta.env.VITE_API_URL}upload`;
-	const onChange = function handleImage(e) {
+
+	const onChange = (e) => {
+		handleImage(e.target.files[0]);
+	};
+
+	const handleDrag = (e) => {
+		e.preventDefault();
+	};
+
+	const handleDrop = (e) => {
+		e.preventDefault();
+
+		handleImage(e.dataTransfer.files[0]);
+	};
+
+	function handleImage(file) {
 		const uploadData = new FormData();
-		uploadData.append('image', e.target.files[0]);
+		uploadData.append('image', file);
 		fetch(API_URL, {
 			method: 'POST',
 			body: uploadData,
@@ -24,6 +39,7 @@ export function useFile({ type }) {
 					codeError: err,
 				});
 			});
-	};
-	return { type, path, status, onChange };
+	}
+
+	return { path, status, onChange, handleDrag, handleDrop };
 }
