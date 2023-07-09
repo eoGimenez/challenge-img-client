@@ -1,3 +1,6 @@
+.img--handler--container {
+}
+
 .img--buttom--decoration {
 	display: inline-block;
 	padding: 10px 15px;
@@ -16,14 +19,29 @@
 	background-color: #d0d0d0;
 }
 .img--handler {
-	width: 300px;
-	height: 200px;
-	border: 2px dashed #aaa;
-	border-radius: 4px;
+	max-width: 30rem;
+	max-height: 20rem;
+	padding-block: 2.5rem;
+	border: 2px dashed var(--drag--border);
+	background-color: var(--drag--back);
+	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
+	gap: 1rem;
 	cursor: pointer;
+	margin-inline: auto;
+}
+
+.img--handler > svg {
+	margin-top: 1rem;
+}
+
+.img--handler > p {
+	font-size: 1.2rem;
+	font-weight: 500;
+	line-height: 1.8;
+	color: var(--gray--font);
 }
