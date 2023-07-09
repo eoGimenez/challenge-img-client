@@ -1,0 +1,10 @@
+.img--container {
+	margin-inline: auto;
+	max-width: 30rem;
+	max-height: 17rem;
+	border-radius: 12px;
+	overflow: hidden;
+}
+.img--container img {
+	width: 100%;
+}

@@ -1,4 +1,6 @@
 import { useFile } from '../../hooks/useFile';
+import Loading from '../Loading/Loading';
+import Successfull from '../Successfull/Successfull';
 import './Uploader.css';
 
 export default function Uploader() {
@@ -123,13 +125,8 @@ export default function Uploader() {
 					</div>
 				</div>
 			)}
-			{!image && isLoading && <h3>CARGANDO</h3>}
-			{image && (
-				<div className='img--container'>
-					{' '}
-					<img src={image.path} alt='Image uploaded' />
-				</div>
-			)}
+			{!image && isLoading && <Loading />}
+			{image && <Successfull image={image} />}
 		</section>
 	);
 }
