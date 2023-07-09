@@ -1,10 +1,11 @@
 :root {
 	--primary-font: #555;
 	--darker-font: #333;
-	--gray--font: #BDBDBD;
+	--gray--font: #bdbdbd;
 
 	--drag--border: #97bef4;
 	--drag--back: #f6f8fb;
+	--buttom--back: #2f80ed;
 }
 
 html {

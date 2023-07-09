@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
 export function useFile() {
-	const [path, setPath] = useState('');
+	const [image, setImage] = useState(null);
 	const [status, setStatus] = useState({});
+	const [isLoading, setIsLoading] = useState(false);
 
 	const API_URL = `${import.meta.env.VITE_API_URL}upload`;
 
@@ -16,13 +17,13 @@ export function useFile() {
 
 	const handleDrop = (e) => {
 		e.preventDefault();
-
 		handleImage(e.dataTransfer.files[0]);
 	};
 
 	function handleImage(file) {
 		const uploadData = new FormData();
 		uploadData.append('image', file);
+		setIsLoading(true);
 		fetch(API_URL, {
 			method: 'POST',
 			body: uploadData,
@@ -31,15 +32,17 @@ export function useFile() {
 			.then((response) => {
 				console.log(response);
 				setStatus({ message: 'The file was successfully uploaded' });
-				setPath(response);
+				setImage(response);
+				setIsLoading(!isLoading);
 			})
 			.catch((err) => {
 				setStatus({
 					message: 'Ocurrió un error de red, por favor, inténtalo nuevamente',
 					codeError: err,
 				});
+				setIsLoading(!isLoading);
 			});
 	}
 
-	return { path, status, onChange, handleDrag, handleDrop };
+	return { image, status, isLoading, onChange, handleDrag, handleDrop };
 }
